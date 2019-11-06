@@ -1,17 +1,17 @@
+agent any
+
+String DOCKER_REPO="registry.cn-shenzhen.aliyuncs.com/liangx8892"
+String DOCKER_REG="https://" + DOCKER_REPO + "/"
+String REG_CREDENTIAL_ID = "d255bea2-5e4e-44cb-8f8e-f26466cd63d1"
+
+def PRODUCT_NAME=env.JOB_NAME.toLowerCase()
+
+String IMAGE_NAME="${PRODUCT_NAME}"
+String IMAGE_TAG=env.BUILD_NUMBER
+
+def customImage
+
 pipeline {
-    agent any
-    
-    String DOCKER_REPO="registry.cn-shenzhen.aliyuncs.com/liangx8892"
-    String DOCKER_REG="https://" + DOCKER_REPO + "/"
-    String REG_CREDENTIAL_ID = "d255bea2-5e4e-44cb-8f8e-f26466cd63d1"
-    
-    def PRODUCT_NAME=env.JOB_NAME.toLowerCase()
-
-	String IMAGE_NAME="${PRODUCT_NAME}"
-    String IMAGE_TAG=env.BUILD_NUMBER
-    
-    def customImage
-
     stages {
         stage('Build') {
             steps {
