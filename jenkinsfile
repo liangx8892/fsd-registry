@@ -1,4 +1,5 @@
-agent any
+#!groovy
+node { 
 
 String DOCKER_REPO="registry.cn-shenzhen.aliyuncs.com/liangx8892"
 String DOCKER_REG="https://" + DOCKER_REPO + "/"
@@ -11,8 +12,7 @@ String IMAGE_TAG=env.BUILD_NUMBER
 
 def customImage
 
-pipeline {
-    stages {
+
         stage('Build') {
             steps {
             	echo 'Using maven to build jar package.'
@@ -33,5 +33,5 @@ pipeline {
                 echo 'Deploying....'
             }
         }
-    }
+ 
 }
