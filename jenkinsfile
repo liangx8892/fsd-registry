@@ -35,7 +35,7 @@ node {
     }
     
     stage('Deploy as docker container') {
-    	sh 'containerid = $(docker ps -a -q -f name=fsd-registry) \n if [[ -n "$result" ]]; then\n  docker rm -f $(containerid)\n fi'
+    	sh 'containerid=$(docker ps -a -q -f name=fsd-registry) \n if [[ -n "$containerid" ]]; then\n  docker rm -f $containerid\n fi'
     	customImage.withRun('--name fsd-registry -p 8081:8081')
     }
 }
