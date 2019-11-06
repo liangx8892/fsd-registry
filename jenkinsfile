@@ -3,7 +3,7 @@ node {
 
 	String DOCKER_REPO="registry.cn-shenzhen.aliyuncs.com/liangx8892"
 	String DOCKER_REG="https://" + DOCKER_REPO + "/"
-	String REG_CREDENTIAL_ID = "d255bea2-5e4e-44cb-8f8e-f26466cd63d1"
+	String REG_CREDENTIAL_ID = "9caf828c-33c7-4dda-9abe-e7e186274d74"
 	
 	def PRODUCT_NAME=env.JOB_NAME.toLowerCase()
 	
