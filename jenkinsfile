@@ -35,8 +35,6 @@ node {
     }
     
     stage('Deploy as docker container') {
-    	sh 'chmod +x rm-container.sh'
-    	sh './rm-container.sh ${PRODUCT_NAME}'
     	customImage.withRun('--name ${PRODUCT_NAME} -p 8081:8081')
     }
 }
