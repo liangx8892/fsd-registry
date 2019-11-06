@@ -1,8 +1,9 @@
 #!groovy
 node { 
 	def PRODUCT_NAME=env.JOB_NAME.toLowerCase()
-	def PORT='8081'
-	String GIT_URL = 'https://github.com/liangx8892/${PRODUCT_NAME}.git'
+	String IMAGE_NAME="${PRODUCT_NAME}"
+	String PORT='8081'
+	String GIT_URL = 'https://github.com/liangx8892/' + IMAGE_NAME + '.git'
 	String DOCKER_REPO="registry.cn-shenzhen.aliyuncs.com/liangx8892"
 	String DOCKER_REG="https://" + DOCKER_REPO + "/"
 	String REG_CREDENTIAL_ID = "9caf828c-33c7-4dda-9abe-e7e186274d74"
@@ -10,10 +11,10 @@ node {
 	
 	
 	
-	String IMAGE_NAME="${PRODUCT_NAME}"
+	
 	String IMAGE_TAG=env.BUILD_NUMBER
-	String REMOVE_COMMAND='docker rm -f ${PRODUCT_NAME}'
-	String RUN_ARGS='--name ${PRODUCT_NAME} -p ${PORT}:${PORT}'
+	String REMOVE_COMMAND='docker rm -f ' + IMAGE_NAME
+	String RUN_ARGS='--name ' + IMAGE_NAME + ' -p ' + PORT + ':' + PORT
 	
 	def customImage
 	
