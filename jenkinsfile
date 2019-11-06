@@ -22,7 +22,7 @@ node {
         		userRemoteConfigs: [[credentialsId: GITHUB_CREDENTIAL_ID, url: GIT_URL]]])
     }
 
-    stage('Build') {
+    stage('Build Spring boot web application') {
 		sh 'mvn clean install'
     }
     
@@ -34,7 +34,8 @@ node {
     	}
     }
     
-    stage('Deploy') {
-            echo 'Deploying....'
+    stage('Deploy as docker container') {
+    	sh 'docker rm -f fsd-registry'
+    	customImage.withRun('--name fsd-registry -p 8081:8081')
     }
 }
