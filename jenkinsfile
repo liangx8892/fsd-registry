@@ -35,6 +35,6 @@ node {
     }
     
     stage('Deploy as docker container') {
-    	customImage.withRun('--name fsd-registry -p 8081:8081')
+    	customImage.run('--name fsd-registry -p 8081:8081')
     }
 }
