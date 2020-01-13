@@ -7,7 +7,7 @@ spring:
   application:
     name: fsd-registry
 server:
-  port: 8081
+  port: 8080
 
 # 服务管理配置
 management:
@@ -27,7 +27,7 @@ eureka:
     register-with-eureka: false                             # 不要向注册中心注册自己
     fetch-registry: false                                   # 表示不去检索其他的服务，因为服务注册中心本身的职责就是维护服务实例，它也不需要去检索其他服务
     service-url:
-      defaultZone: http://localhost:8081/eureka
+      defaultZone: http://localhost:8080/eureka
   instance:
     prefer-ip-address: true
     instance-id: ${spring.application.name}:${server.port}
@@ -44,7 +44,7 @@ spring:
   application:
     name: fsd-registry
 server:
-  port: 8081
+  port: 8080
 
 # 服务管理配置
 management:
@@ -64,7 +64,7 @@ eureka:
     register-with-eureka: false                             # 不要向注册中心注册自己
     fetch-registry: false                                   # 表示不去检索其他的服务，因为服务注册中心本身的职责就是维护服务实例，它也不需要去检索其他服务
     service-url:
-      defaultZone: http://localhost:8081/eureka
+      defaultZone: http://fsd-registry:8080/eureka
   instance:
     prefer-ip-address: true
     instance-id: ${spring.application.name}:${server.port}
